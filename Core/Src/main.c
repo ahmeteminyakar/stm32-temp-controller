@@ -80,14 +80,12 @@ int main(void)
 
             float ds_temp = DS18B20_ReadTemp();
 
-            /* DHT22 needs >= 2s between reads */
             if ((now - last_dht_tick) >= 2000) {
                 last_dht_tick = now;
                 if (DHT22_Read(&dht_data))
                     ctrl.humidity = dht_data.humidity;
             }
 
-            /* Average both sensors if both are valid */
             float temp;
             if (ds_temp > -100.0f && dht_data.temperature > 0.1f)
                 temp = (ds_temp + dht_data.temperature) / 2.0f;
@@ -146,8 +144,6 @@ static void UpdateDisplay(ControlState *state)
     OLED_WriteString(line);
 }
 
-/* Peripheral init — CubeMX generates these, shown here as reference */
-
 void SystemClock_Config(void)
 {
 }
@@ -178,7 +174,7 @@ static void MX_TIM3_Init(void)
     htim3.Instance               = TIM3;
     htim3.Init.Prescaler         = 89;
     htim3.Init.CounterMode       = TIM_COUNTERMODE_UP;
-    htim3.Init.Period            = 999;     /* 1 kHz PWM */
+    htim3.Init.Period            = 999;
     htim3.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
     htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
 

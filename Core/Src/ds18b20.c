@@ -106,14 +106,14 @@ uint8_t DS18B20_Start(void)
 float DS18B20_ReadTemp(void)
 {
     if (!ow_reset()) return -999.0f;
-    ow_write_byte(0xCC);   /* Skip ROM */
-    ow_write_byte(0x44);   /* Convert T */
+    ow_write_byte(0xCC);
+    ow_write_byte(0x44);
 
-    HAL_Delay(750);         /* 12-bit conversion time */
+    HAL_Delay(750);
 
     if (!ow_reset()) return -999.0f;
     ow_write_byte(0xCC);
-    ow_write_byte(0xBE);   /* Read Scratchpad */
+    ow_write_byte(0xBE);
 
     uint8_t lsb = ow_read_byte();
     uint8_t msb = ow_read_byte();

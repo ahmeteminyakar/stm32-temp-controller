@@ -3,15 +3,13 @@
 
 #include "stm32f4xx_hal.h"
 
-/* Pin assignments — Nucleo-F446RE */
-
 #define DS18B20_PORT        GPIOA
 #define DS18B20_PIN         GPIO_PIN_8
 
 #define DHT22_PORT          GPIOA
 #define DHT22_PIN           GPIO_PIN_9
 
-#define OLED_I2C_ADDR       0x78    /* 0x3C << 1 */
+#define OLED_I2C_ADDR       0x78
 
 #define HEATER_TIM_CHANNEL  TIM_CHANNEL_1
 #define FAN_TIM_CHANNEL     TIM_CHANNEL_2

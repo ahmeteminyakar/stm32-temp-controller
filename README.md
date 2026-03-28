@@ -4,7 +4,7 @@ Closed-loop temperature controller with dual sensors, PID control, OLED display,
 
 ## Features
 
-- **Dual sensors**: DS18B20 (1-Wire) + DHT22 — temperature fusion, humidity reading
+- **Dual sensors**: DS18B20 (1-Wire) + DHT22, temperature fusion, humidity reading
 - **PID control**: Independent heater and fan PWM outputs
 - **Three modes**: HEAT (heater only), COOL (fan only), AUTO (PID selects)
 - **OLED display**: Real-time temp, setpoint, mode, duty cycle on SSD1306 128x64
@@ -61,13 +61,13 @@ stm32-temp-controller/
 4. Build and flash
 
 ### Peripheral Configuration (CubeMX)
-- **TIM3**: PWM CH1 (PA6) + CH2 (PA7) — Prescaler: 89, Period: 999
-- **I2C1**: Fast mode 400kHz — SCL (PB8), SDA (PB9)
-- **USART2**: 115200 baud — TX (PA2), RX (PA3)
+- **TIM3**: PWM CH1 (PA6) + CH2 (PA7), Prescaler: 89, Period: 999
+- **I2C1**: Fast mode 400kHz, SCL (PB8), SDA (PB9)
+- **USART2**: 115200 baud, TX (PA2), RX (PA3)
 - **ADC1**: Channel 0 (PA0), 12-bit, single conversion
 - **PC13**: GPIO EXTI, falling edge (user button)
-- **PA8**: GPIO output (open-drain) — DS18B20
-- **PA9**: GPIO output/input — DHT22
+- **PA8**: GPIO output (open-drain), DS18B20
+- **PA9**: GPIO output/input, DHT22
 
 ## Control Modes
 
